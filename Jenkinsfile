@@ -8,10 +8,10 @@ pipeline {
             steps {
                 script {
                     if (env.BRANCH_NAME == 'staging') {
-                sh 'docker build -t ramses01/blogx:0.0.$BUILD_NUMBER-staging .'
+                sh 'sudo docker build -t ramses01/blogx:0.0.$BUILD_NUMBER-staging .'
                     }
                     else if (env.BRANCH_NAME == 'master') {
-                sh 'docker build -t ramses01/blogx:0.0.$BUILD_NUMBER-master .'
+                sh 'sudo docker build -t ramses01/blogx:0.0.$BUILD_NUMBER-master .'
                     }
                     else
                     {
@@ -24,10 +24,10 @@ pipeline {
             steps {
                 script {
                     if (env.BRANCH_NAME == 'staging') {
-                sh 'docker push ramses01/blogx:0.0.$BUILD_NUMBER-staging'
+                sh 'sudo docker push ramses01/blogx:0.0.$BUILD_NUMBER-staging'
                     }
                     else if (env.BRANCH_NAME == 'master') {
-                sh 'docker push ramses01/blogx:0.0.$BUILD_NUMBER-master'
+                sh 'sudo docker push ramses01/blogx:0.0.$BUILD_NUMBER-master'
                     }
                     else
                     {
